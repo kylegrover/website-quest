@@ -82,7 +82,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
         // basic lighting
-        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(33, 2, -33), scene);
+        var pathwidth = (window.innerWidth <= 768 ? 3 : 2); 
+        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(33, pathwidth, -33), scene);
 
         // a good website
         var agoodwebsite = BABYLON.SceneLoader.Append("./", "a good website.obj", scene, function (scene) {
