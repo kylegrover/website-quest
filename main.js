@@ -61,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function () {
         ground.material.backFaceCulling = false;
         ground.position = new BABYLON.Vector3(10, 0.1, -10);
         ground.rotation = new BABYLON.Vector3(Math.PI / 2, Math.PI / 4, 0);
+        ground.material.opacity = 0.5;
 
         // camera/player STUFF
         // create camera
@@ -81,7 +82,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
         // basic lighting
-        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(6, 10, -8), scene);
+        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(33, 2, -33), scene);
 
         // a good website
         var agoodwebsite = BABYLON.SceneLoader.Append("./", "a good website.obj", scene, function (scene) {
