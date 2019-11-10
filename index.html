@@ -23,7 +23,8 @@
             #babylonjsLoadingDiv {
                 opacity: 0!important;
             }
-            .start-screen {
+            .start-screen,
+            .ded-screen {
                 font-family: 'Press Start 2P', sans-serif;
                 position: absolute;
                 top: 0;
@@ -46,7 +47,26 @@
                 opacity: 0;
                 pointer-events: none;
             }
+            .ded-screen {
+                display: none;
+                background: none;
+            }
+            .ded-screen.u-ded {
+                display: flex;
+            }
+            .ded-screen span {display: none;}
+            .ded-screen.u-ded .ded-1 .ded-1,
+            .ded-screen.u-ded .ded-2 .ded-2,
+            .ded-screen.u-ded .ded-3 .ded-3, {
+                display: block;
+            }
         </style>
+        <link rel="preload" href="textures/404dethh_nx.jpg" as="image" type="image/jpeg">
+        <link rel="preload" href="textures/404dethh_ny.jpg" as="image" type="image/jpeg">
+        <link rel="preload" href="textures/404dethh_nz.jpg" as="image" type="image/jpeg">
+        <link rel="preload" href="textures/404dethh_px.jpg" as="image" type="image/jpeg">
+        <link rel="preload" href="textures/404dethh_py.jpg" as="image" type="image/jpeg">
+        <link rel="preload" href="textures/404dethh_pz.jpg" as="image" type="image/jpeg">
     </head>
     <body>
         <canvas id="websitequest" touch-action="none"></canvas>
@@ -56,6 +76,13 @@
                 <p>Beyond this wall of text is a <span style="color: #2fc432; ">path</span> that will lead you to <span class="special-words" style="color: #be0c1b">a good website</span></p>
                 Journey safely for there are <em style="color: #1b6db4;">ghouls and demons</em> all around, waiting to prey on those who stray</p>
                 <p><strong>Click anywhere</strong> to begin your journey, and good luck.</p>
+            </div>
+        </div>
+        <div class="ded-screen">
+            <div data-ded="3">
+                <span data-ded="1">Weebly sites are wobbly, and they often fall down</span>
+                <span data-ded="2">GoDaddy support can take up to an hour to not fix your problem</span>
+                <span data-ded="3">I Wix you the best of luck</span>
             </div>
         </div>
         <script src="main.js"></script>

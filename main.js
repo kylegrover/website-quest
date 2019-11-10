@@ -55,9 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
         gl.intensity = 0.5;
 
         //Ground
-        console.log(window.innerWidth);
         var pathwidth = (window.innerWidth <= 768 ? 2 : 1); 
-        console.log(pathwidth);
 
         ground = BABYLON.MeshBuilder.CreatePlane("ground", {width: 60, size: pathwidth, tileSize: 30}, scene);
         ground.material = new BABYLON.StandardMaterial("groundMat", scene);
@@ -83,6 +81,8 @@ window.addEventListener("DOMContentLoaded", function () {
         camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
         camera.speed = 0.5;
         camera._needMoveForGravity = true
+        camera.touchAngularSensibility = 99999;
+        // console.log(camera.touchAngularSensibility);
 
 
         // basic lighting
@@ -176,7 +176,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 ifell = true;
                 setTimeout(() => {
                     engine.scenes[0].cameras[0]._position = new BABYLON.Vector3(-10,2.1,10);
-                    engine.scenes[0].cameras[0]._rotation = new BABYLON.Vector3(0,0,0);
+                    engine.scenes[0].cameras[0].setTarget(BABYLON.Vector3.Zero());
                     ifell = false;
                 }, 300);
                 ground._scaling.y += 0.5;
