@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-
+    var ground;
     var redirected = false;
     var ifell = false;
     var canvas = document.getElementById('websitequest');
@@ -55,7 +55,11 @@ window.addEventListener("DOMContentLoaded", function () {
         gl.intensity = 0.5;
 
         //Ground
-        var ground = BABYLON.MeshBuilder.CreatePlane("ground", {width: 60, size: 2, tileSize: 30}, scene);
+        console.log(window.innerWidth);
+        var pathwidth = (window.innerWidth <= 768 ? 2 : 1); 
+        console.log(pathwidth);
+
+        ground = BABYLON.MeshBuilder.CreatePlane("ground", {width: 60, size: pathwidth, tileSize: 30}, scene);
         ground.material = new BABYLON.StandardMaterial("groundMat", scene);
         ground.material.diffuseColor = new BABYLON.Color3(1, 1, 1);
         ground.material.backFaceCulling = false;
@@ -82,8 +86,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
         // basic lighting
-        var pathwidth = (window.innerWidth <= 768 ? 3 : 2); 
-        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(33, pathwidth, -33), scene);
+        var light1 = new BABYLON.PointLight('point1', new BABYLON.Vector3(33, 2, -33), scene);
 
         // a good website
         var agoodwebsite = BABYLON.SceneLoader.Append("./", "a good website.obj", scene, function (scene) {
@@ -176,6 +179,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     engine.scenes[0].cameras[0]._rotation = new BABYLON.Vector3(0,0,0);
                     ifell = false;
                 }, 300);
+                ground._scaling.y += 0.5;
             }
             throttle(function(){
                 // x range -10, 30
